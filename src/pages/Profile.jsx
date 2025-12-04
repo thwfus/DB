@@ -616,12 +616,20 @@ const OrderManagement = () => {
                         className="border rounded-lg p-4 flex items-center justify-between bg-white shadow-sm"
                     >
                         <div>
-                            <p className="font-semibold text-gray-800">
-                                {prod.TenSanPham || prod.Ten || `Sản phẩm #${prod.MaSanPham}`}
-                            </p>
+                            <Link 
+                                to={`/product/${prod.MaSanPham}`}
+                                // THÊM: Truyền toàn bộ object sản phẩm vào state của router
+                                state={{ productDB: prod }} 
+                                className="text-gray-800 hover:text-shopee-primary transition"
+                            >
+                                <p className="font-semibold">
+                                    {prod.TenSanPham || prod.Ten || `Sản phẩm #${prod.MaSanPham}`}
+                                </p>
+                            </Link>
                             <p className="text-xs text-gray-500 mt-1">
-                                Mã sản phẩm: {prod.MaSanPham} • Mã Shop:{' '}
-                                {prod.TenShop || prod.MaShop || '—'}
+                                Mã Shop: {prod.MaShop} • Mã sản phẩm: {prod.MaSanPham}
+                                <br/>
+                                Mã danh mục: {prod.MaDanhMuc} • Mã thương hiệu: {prod.MaThuongHieu}
                             </p>
                         </div>
                         <div className="text-right">

@@ -186,7 +186,10 @@ app.get('/api/products', async (req, res) => {
         const [rows] = await pool.execute(
             // 'CALL sp_LietKeSanPhamTheoShopDanhMuc(?, ?)', 
             // [shop_id, category_id]
-            `SELECT * FROM SanPham WHERE MaShop=${shop_id} AND DaXoa=${0}`
+            `SELECT * FROM SanPham sp JOIN SanPhamThuocVao spv 
+                ON sp.MaShop = spv.MaShop and sp.MaSanPham = spv.MaSanPham
+                WHERE sp.MaShop = ${shop_id}
+            `
         );
         
         products = rows || [];
