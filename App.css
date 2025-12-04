@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Shopee Primary Button */
+.shopee-primary {
+    background-color: #EE4D2D;
+}
+
+.shopee-primary:hover {
+    background-color: #D73211;
+}
+
+/* Login Background Gradient */
+.login-bg-gradient {
+    background: linear-gradient(135deg, #EE4D2D 0%, #FF7337 100%);
+}
+
+/* Text Colors */
+.text-shopee-primary {
+    color: #EE4D2D;
+}
