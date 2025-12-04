@@ -19,17 +19,16 @@ app.use((req, res, next) => {
 });
 
 // ================ DATABASE CONNECTION ================
-
-// const pool = mysql.createPool({
-//     host: process.env.DB_HOST || 'btl-hcsdl-tienloc0902-2358.g.aivencloud.com',
-//     user: process.env.DB_USER || 'avnadmin',
-//     password: process.env.DB_PASSWORD || 'AVNS_xNTjkqxKZJWB7A1ej72',
-//     database: process.env.DB_NAME || 'defaultdb',
-//     port: process.env.DB_PORT || 16219,
-//     waitForConnections: true,
-//     connectionLimit: 10,
-//     queueLimit: 0
-// });
+const pool = mysql.createPool({
+    host: process.env.DB_HOST || 'btl-hcsdl-tienloc0902-2358.g.aivencloud.com',
+    user: process.env.DB_USER || 'avnadmin',
+    password: process.env.DB_PASSWORD || 'AVNS_xNTjkqxKZJWB7A1ej72',
+    database: process.env.DB_NAME || 'defaultdb',
+    port: process.env.DB_PORT || 16219,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
 
 // Test connection
 (async () => {
